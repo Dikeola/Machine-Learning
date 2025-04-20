@@ -1,0 +1,56 @@
+🌳 What Is a Sample?
+A sample is one row of your data — one instance, one observation.
+For example, in a dataset of patients, a sample might be:
+
+{
+  "age": 35,
+  "temperature": 38.5,
+  "cough": "yes",
+  "diagnosis": "flu"
+}
+👩‍⚕️ Example Dataset (for Classification)
+Imagine this dataset of patient symptoms and whether they have the flu or not:
+
+
+ID	Fever (°C)	Cough	Flu (Label)
+1	38.5	yes	yes
+2	36.7	no	no
+3	37.8	yes	yes
+4	36.2	no	no
+5	39.0	yes	yes
+6	36.5	yes	no
+🌲 How the Tree Learns
+The tree tries to split the data to maximize the purity of each leaf.
+
+Root Node might ask:
+"Is Fever > 37.5°C?"
+If yes → likely Flu
+If no → probably not Flu
+Then it might go deeper:
+"Does the patient have a cough?"
+🔍 Let's Predict for a New Patient
+Let's say a new patient comes in:
+
+{
+  "fever": 38.0,
+  "cough": "yes"
+}
+🧭 How Prediction Happens (Step-by-step)
+The model goes down the tree like answering a flowchart:
+
+Root Node:
+→ Question: "Is fever > 37.5?"
+→ Patient: 38.0 → Yes
+→ Go to the right branch
+Next Node:
+→ Question: "Cough == yes?"
+→ Patient: yes → Yes
+→ Go to the right branch
+Leaf Node:
+→ This leaf contains:
+5 samples, 4 of which had Flu, 1 didn’t → Prediction: "Yes, has Flu"
+🧠 Summary (In Words)
+A sample is one data row.
+The classifier makes predictions by asking yes/no questions at each node.
+It walks down the tree until it reaches a leaf.
+The class with the majority vote in that leaf becomes the prediction.
