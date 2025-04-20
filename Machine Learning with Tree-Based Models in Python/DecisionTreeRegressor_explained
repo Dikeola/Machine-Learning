@@ -1,0 +1,48 @@
+Let's walk through how a Decision Tree Regressor makes a prediction, using simple terms and a step-by-step example.
+
+🌳 What Is a Sample? A sample is one row of your data — one instance, one observation. For example, in a dataset of house prices, a sample might be:
+
+{
+  "square_feet": 1500,
+  "bedrooms": 3,
+  "price": 300000
+}
+👨‍💼 Example Dataset (for Regression) Imagine this dataset where we want to predict the price of a house based on its size and number of bedrooms:
+
+
+ID	Square Feet	Bedrooms	Price ($)
+1	  1000	        2	      200000
+2	  1500	        3	      300000
+3	  2000	        4	      400000
+4	  1200	        3	      250000
+5	  1800	        3	      350000
+6	  1100	        2    	  220000
+🌲 How the Tree Learns The Decision Tree Regressor splits the data at each node to predict the target variable (price) by trying to minimize the error within each split.
+
+For example, at the root node, the tree might ask: "Is the square footage > 1500?"
+
+If yes → go to the right branch. If no → go to the left branch.
+
+Then the tree might further split based on the number of bedrooms or other features.
+
+🔍 Let's Predict for a New House Let’s say we want to predict the price of a new house:
+
+{
+  "square_feet": 1400,
+  "bedrooms": 3
+}
+🧭 How Prediction Happens (Step-by-step)
+
+Root Node: → Question: "Is square footage > 1500?" → House: 1400 → No → Go to the left branch (Houses with smaller square footage)
+Next Node: → Question: "Is number of bedrooms > 2?" → House: 3 → Yes → Go to the right branch (Houses with more than 2 bedrooms)
+Leaf Node: → This leaf contains: 2 samples:
+House 1 (1000 sqft, 2 bedrooms, $200,000)
+House 4 (1200 sqft, 3 bedrooms, $250,000)
+→ The average price in this leaf = (200,000 + 250,000) / 2 = $225,000
+🧠 Summary (In Words)
+
+A sample is one data row.
+The regressor makes predictions by asking questions (like "Is square footage > 1500?") at each node.
+It walks down the tree until it reaches a leaf.
+The prediction at the leaf is the average of all the target values in that leaf.
+Thus, for the new house, the predicted price would be $225,000 based on the average price in the leaf where similar houses are found.
