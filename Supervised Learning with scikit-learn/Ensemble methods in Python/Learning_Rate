@@ -1,0 +1,2 @@
+'learning_rate' parameter refers to how each estimator contributes to the ensemble.
+There is a tradeoff between learning_rate and n_estimators
