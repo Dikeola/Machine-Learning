@@ -1,0 +1,18 @@
+from sklearn.ensemble import AdaBoostClassifier
+
+ad = AdaBoostClassifier(
+  base_estimator, n_estimators, learning_rate
+)
+#base_estimator- default: DecisionTree(max_depth=1)
+#n_estimators- default:50
+#learning_rate-default:1.0
+trade-off between n_estimators and learning_rate
+from sklearn.ensemble import AdaBoostRegressor
+
+ad = AdaBoostRegressor(
+  base_estimator, n_estimators, learning_rate, loss
+)
+#base_estimator- default: DecisionTree(max_depth=3)
+#n_estimators- default:50
+#learning_rate-default:1.0
+#loss-used to update weights; default:linear; exponential, square
